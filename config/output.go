@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/TylerBrock/colorjson"
+	"github.com/jwengr/colorjson"
 	"github.com/fatih/color"
 )
 

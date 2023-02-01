@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/TylerBrock/colorjson"
-	"github.com/TylerBrock/saw/config"
+	"github.com/jwengr/colorjson"
+	"github.com/jwengr/saw/config"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials/stscreds"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -44,7 +44,7 @@ func NewBlade(
 	}
 
 	awsCfg.Retryer = retryer.NewLogThrottleRetryer(cwl.Log)
-	
+
 	awsSessionOpts := session.Options{
 		Config:                  awsCfg,
 		AssumeRoleTokenProvider: stscreds.StdinTokenProvider,
