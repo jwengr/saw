@@ -43,7 +43,7 @@ func NewBlade(
 		awsCfg.Region = &awsConfig.Region
 	}
 
-	awsCfg.Retryer = retryer.NewLogThrottleRetryer(cwl.Log)
+	awsCfg.Retryer := retryer.NewLogThrottleRetryer(cwl.Log)
 
 	awsSessionOpts := session.Options{
 		Config:                  awsCfg,
