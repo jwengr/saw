@@ -1,4 +1,4 @@
-module github.com/TylerBrock/saw
+module github.com/jwengr/saw
 
 go 1.12
 
