@@ -13,6 +13,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials/stscreds"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/cloudwatchlogs"
+	"github.com/aws/amazon-cloudwatch-agent/internal/retryer"
 	"github.com/fatih/color"
 )
 
@@ -29,6 +30,7 @@ func NewBlade(
 	config *config.Configuration,
 	awsConfig *config.AWSConfiguration,
 	outputConfig *config.OutputConfiguration,
+	cwl *cloudwatchlogs.CloudWatchLogs
 ) *Blade {
 	blade := Blade{}
 	awsCfg := aws.Config{}
@@ -41,6 +43,8 @@ func NewBlade(
 		awsCfg.Region = &awsConfig.Region
 	}
 
+	awsCfg.Retryer = retryer.NewLogThrottleRetryer(cwl.Log)
+	
 	awsSessionOpts := session.Options{
 		Config:                  awsCfg,
 		AssumeRoleTokenProvider: stscreds.StdinTokenProvider,
