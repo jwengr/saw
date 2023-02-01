@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/TylerBrock/saw/cmd"
+	"github.com/jwengr/saw/cmd"
 )
 
 func main() {
