@@ -7,13 +7,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jwengr/colorjson"
+	"github.com/TylerBrock/colorjson"
 	"github.com/jwengr/saw/config"
+	"github.com/jwengr/saw/internal/retryer"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials/stscreds"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/cloudwatchlogs"
-	"github.com/aws/amazon-cloudwatch-agent/internal/retryer"
 	"github.com/fatih/color"
 )
 
