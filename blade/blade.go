@@ -30,7 +30,6 @@ func NewBlade(
 	config *config.Configuration,
 	awsConfig *config.AWSConfiguration,
 	outputConfig *config.OutputConfiguration,
-	cwl *cloudwatchlogs.CloudWatchLogs,
 ) *Blade {
 	blade := Blade{}
 	awsCfg := aws.Config{}
@@ -43,7 +42,7 @@ func NewBlade(
 		awsCfg.Region = &awsConfig.Region
 	}
 
-	logThrottleRetryer := retryer.NewLogThrottleRetryer(cwl.Log)
+	logThrottleRetryer := retryer.NewLogThrottleRetryer(blade.cwl.Log)
 	awsCfg.Retryer = logThrottleRetryer
 
 	awsSessionOpts := session.Options{
