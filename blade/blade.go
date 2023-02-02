@@ -30,7 +30,7 @@ func NewBlade(
 	config *config.Configuration,
 	awsConfig *config.AWSConfiguration,
 	outputConfig *config.OutputConfiguration,
-	cwl *cloudwatchlogs.CloudWatchLogs
+	cwl *cloudwatchlogs.CloudWatchLogs,
 ) *Blade {
 	blade := Blade{}
 	awsCfg := aws.Config{}
