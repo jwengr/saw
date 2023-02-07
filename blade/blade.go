@@ -43,7 +43,7 @@ func NewBlade(
 	}
 
 	logThrottleRetryer := retryer.NewLogThrottleRetryer(awsConfig.Log)
-	awsCfg.Retryer = logThrottleRetryer
+	awsCfg.Retryer = &logThrottleRetryer
 
 	awsSessionOpts := session.Options{
 		Config:                  awsCfg,
